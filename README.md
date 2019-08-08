@@ -1,10 +1,16 @@
+[![Build Status](https://travis-ci.com/shaluchandwani/demo-Project-React.svg?branch=develop)](https://travis-ci.com/shaluchandwani/demo-Project-React)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+[![Reviewed by Hound](https://img.shields.io/github/issues/shaluchandwani/demo-Project-React.svg?style=flat-square)](https://houndci.com) [![Coverage Status](https://coveralls.io/repos/github/shaluchandwani/demo-Project-React/badge.svg?branch=develop)](https://coveralls.io/github/shaluchandwani/demo-Project-React?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/fbf4e41d7d7846a0bee6/maintainability)](https://codeclimate.com/github/shaluchandwani/demo-Project-React/maintainability)
+
 ## demo-Project-React
+
+SVAS COLLECTIONS
 
 ## Having Issues? Try these things first:
 
 1. Run `npm install` - If you forget to do this, you'll get an error when you try to start the app later.
 2. Don't run the project from a symbolic link. It will cause issues with file watches.
-3. Delete any .eslintrc in your user directory and disable any ESLint plugin / custom rules within your editor since these will conflict with the ESLint rules defined in the course.
+3. Delete any .eslintrc in your user directory and disable any ESLint plugin / custom rules within your editor since these will conflict with the ESLint rules defined in the Gallery.
 4. On Windows? Open your console as an administrator. This will assure the console has the necessary rights to perform installs.
 5. Ensure you do not have NODE_ENV=production in your env variables as it will not install the devDependencies. To check run this on the command line: `set NODE_ENV`. If it comes back as production, you need to clear this env variable.
 6. Nothing above work? Delete your node_modules folder and re-run npm install.
