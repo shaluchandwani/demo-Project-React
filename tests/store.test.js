@@ -1,7 +1,7 @@
 import { createStore } from "redux";
-import rootReducer from "./reducers";
-import initialState from "./reducers/initialState";
-import * as GalleryActions from "./actions/GalleryActions";
+import rootReducer from "../src/redux/reducers";
+import initialState from "../src/redux/reducers/initialState";
+import * as GalleryActions from "../src/redux/actions/GalleryActions";
 
 it("Should handle creating Gallery", function() {
   const store = createStore(rootReducer, initialState);

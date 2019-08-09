@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
-import { venders, newGallery, Gallery } from "../../../tools/mockData";
-import { ManageGalleryPage } from "./ManageGalleryPage";
+import { venders, newGallery, Gallery } from "../tools/mockData";
+import { ManageGalleryPage } from "../src/components/Gallery/ManageGalleryPage";
 
 function render(args) {
   const defaultProps = {
