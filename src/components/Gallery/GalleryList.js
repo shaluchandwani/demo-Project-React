@@ -30,7 +30,9 @@ const GalleryList = ({ Gallery, onDeleteClick }) => (
             <td>{Gallery.VenderName}</td>
             <td>{Gallery.size}</td>
             <td>{Gallery.amount}</td>
-            <td>{Gallery.image}</td>
+            <td>
+              <img src={`${Gallery.image}`} />
+            </td>
             <td>
               <button
                 className="btn btn-outline-danger"

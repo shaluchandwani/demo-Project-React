@@ -55,6 +55,7 @@ const GalleryOneForm = ({
         onChange={onChange}
         error={errors.amount}
       />
+
       <button type="submit" disabled={saving} className="btn btn-primary">
         {saving ? "Saving..." : "Save"}
       </button>
