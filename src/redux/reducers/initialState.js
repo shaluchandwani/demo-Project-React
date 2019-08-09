@@ -1,4 +1,5 @@
 export default {
   Gallery: [],
-  venders: []
+  venders: [],
+  apiCallsInProgress: 0
 };

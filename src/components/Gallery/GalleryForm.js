@@ -11,7 +11,6 @@ const GalleryOneForm = ({
   saving = false,
   errors = {}
 }) => {
-  console.log(GalleryOne, "reached");
   return (
     <form onSubmit={onSave}>
       <h2>{GalleryOne.id ? "Edit" : "Add"} Items in Gallery</h2>

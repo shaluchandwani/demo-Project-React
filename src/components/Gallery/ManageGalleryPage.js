@@ -5,8 +5,10 @@ import { loadvenders } from "../../redux/actions/VenderActions";
 import PropTypes from "prop-types";
 import GalleryForm from "./GalleryForm";
 import { newGallery } from "../../../tools/mockData";
+import Spinner from "../common/Spinner";
+import { toast } from "react-toastify";
 
-function ManageGalleryPage({
+export function ManageGalleryPage({
   Gallery,
   venders,
   loadvenders,
@@ -16,7 +18,8 @@ function ManageGalleryPage({
   ...props
 }) {
   const [GalleryOne, setGallery] = useState({ ...props.GalleryOne });
-  const [errors] = useState({});
+  const [errors, setErrors] = useState({});
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (Gallery.length === 0) {
@@ -41,21 +44,42 @@ function ManageGalleryPage({
       [name]: name === "vender" ? parseInt(value, 10) : value
     }));
   }
+  function formIsValid() {
+    const { title, size, amount } = GalleryOne;
+    const errors = {};
+    if (!title) errors.title = "Title is required.";
+    if (!size) errors.size = "size is required.";
+    if (!amount) errors.amount = "amount is required.";
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  }
 
   function handleSave(event) {
     event.preventDefault();
-    saveGallery(GalleryOne).then(() => {
-      history.push("/Gallery");
-    });
+    if (!formIsValid()) return;
+    setSaving(true);
+    saveGallery(GalleryOne)
+      .then(() => {
+        toast.success("Item saved in Gallery.");
+        history.push("/Gallery");
+      })
+      .catch(error => {
+        setSaving(false);
+        setErrors({ onSave: error.message });
+      });
   }
 
-  return (
+  return venders.length === 0 || Gallery.length === 0 ? (
+    <Spinner />
+  ) : (
     <GalleryForm
       GalleryOne={GalleryOne}
       errors={errors}
       venders={venders}
       onChange={handleChange}
       onSave={handleSave}
+      saving={saving}
     />
   );
 }

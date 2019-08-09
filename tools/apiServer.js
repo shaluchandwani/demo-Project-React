@@ -13,7 +13,7 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 server.use(function(req, res, next) {
-  setTimeout(next, 0);
+  setTimeout(next, 2000);
 });
 
 server.use((req, res, next) => {

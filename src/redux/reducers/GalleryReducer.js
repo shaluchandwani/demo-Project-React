@@ -11,6 +11,8 @@ export default function GalleryReducer(state = initialState.Gallery, action) {
       return state.map(gallery =>
         gallery.id === action.gallery.id ? action.gallery : gallery
       );
+    case types.DELETE_COURSE_OPTIMISTIC:
+      return state.filter(gallery => gallery.id !== action.gallery.id);
     default:
       return state;
   }

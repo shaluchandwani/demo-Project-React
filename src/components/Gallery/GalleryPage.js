@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import GalleryList from "./GalleryList";
 import { Redirect } from "react-router-dom";
+import Spinner from "../common/Spinner";
+import { toast } from "react-toastify";
 
 class GalleryPage extends React.Component {
   state = {
@@ -27,20 +29,37 @@ class GalleryPage extends React.Component {
     }
   }
 
+  handleDeleteGallery = async Gallery => {
+    toast.success("Item deleted from Gallery");
+    try {
+      await this.props.actions.deleteGallery(Gallery);
+    } catch (error) {
+      toast.error("Delete failed. " + error.message, { autoClose: false });
+    }
+  };
+
   render() {
     return (
       <>
         {this.state.redirectToAddGalleryPage && <Redirect to="/GalleryOne" />}
         <h2>Gallery</h2>
-
-        <button
-          style={{ marginBottom: 20 }}
-          className="btn btn-primary add-gallery"
-          onClick={() => this.setState({ redirectToAddGalleryPage: true })}
-        >
-          Add Item in Gallery
-        </button>
-        <GalleryList Gallery={this.props.Gallery} />
+        {this.props.loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <button
+              style={{ marginBottom: 20 }}
+              className="btn btn-primary add-gallery"
+              onClick={() => this.setState({ redirectToAddGalleryPage: true })}
+            >
+              Add Item in Gallery
+            </button>
+            <GalleryList
+              onDeleteClick={this.handleDeleteGallery}
+              Gallery={this.props.Gallery}
+            />
+          </>
+        )}
       </>
     );
   }
@@ -49,7 +68,8 @@ class GalleryPage extends React.Component {
 GalleryPage.propTypes = {
   venders: PropTypes.array.isRequired,
   Gallery: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {
@@ -65,7 +85,8 @@ function mapStateToProps(state) {
               VenderName: state.venders.find(a => a.id === Gallery.vender).name
             };
           }),
-    venders: state.venders
+    venders: state.venders,
+    loading: state.apiCallsInProgress > 0
   };
 }
 
@@ -73,7 +94,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadGallery: bindActionCreators(GalleryActions.loadGallery, dispatch),
-      loadvenders: bindActionCreators(VenderActions.loadvenders, dispatch)
+      loadvenders: bindActionCreators(VenderActions.loadvenders, dispatch),
+      deleteGallery: bindActionCreators(GalleryActions.deleteGallery, dispatch)
     }
   };
 }

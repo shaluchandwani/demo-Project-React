@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.com/shaluchandwani/demo-Project-React.svg?branch=develop)](https://travis-ci.com/shaluchandwani/demo-Project-React)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+[![Reviewed by Hound](https://img.shields.io/github/issues/shaluchandwani/demo-Project-React.svg?style=flat-square)](https://houndci.com) [![Coverage Status](https://coveralls.io/repos/github/shaluchandwani/demo-Project-React/badge.svg?branch=develop)](https://coveralls.io/github/shaluchandwani/demo-Project-React?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/fbf4e41d7d7846a0bee6/maintainability)](https://codeclimate.com/github/shaluchandwani/demo-Project-React/maintainability)
+
 ## demo-Project-React
 
 SVAS COLLECTIONS

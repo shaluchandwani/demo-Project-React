@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const GalleryList = ({ Gallery }) => (
+const GalleryList = ({ Gallery, onDeleteClick }) => (
   <table className="table">
     <thead>
       <tr>
@@ -12,6 +12,7 @@ const GalleryList = ({ Gallery }) => (
         <th>Size</th>
         <th>Amount</th>
         <th>Image</th>
+        <th />
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,14 @@ const GalleryList = ({ Gallery }) => (
             <td>{Gallery.size}</td>
             <td>{Gallery.amount}</td>
             <td>{Gallery.image}</td>
+            <td>
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => onDeleteClick(Gallery)}
+              >
+                Delete
+              </button>
+            </td>
           </tr>
         );
       })}
@@ -38,7 +47,8 @@ const GalleryList = ({ Gallery }) => (
 );
 
 GalleryList.propTypes = {
-  Gallery: PropTypes.array.isRequired
+  Gallery: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
 };
 
 export default GalleryList;
