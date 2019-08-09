@@ -8,7 +8,6 @@ export function getGallery() {
 }
 
 export function saveGallery(GalleryOne) {
-  debugger;
   return fetch(baseUrl + (GalleryOne.id || ""), {
     method: GalleryOne.id ? "PUT" : "POST",
     headers: { "content-type": "application/json" },

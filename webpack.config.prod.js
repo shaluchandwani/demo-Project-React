@@ -49,7 +49,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader", "eslint-loader"],
+        query: {
+          presets: ["react", "es2015", "stage-3"]
+        }
       },
       {
         test: /(\.css)$/,
@@ -68,7 +71,10 @@ module.exports = {
               sourceMap: true
             }
           }
-        ]
+        ],
+        query: {
+          presets: ["react", "es2015", "stage-3"]
+        }
       }
     ]
   }

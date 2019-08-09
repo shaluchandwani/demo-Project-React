@@ -73,13 +73,11 @@ GalleryPage.propTypes = {
 };
 
 function mapStateToProps(state) {
-  debugger;
   return {
     Gallery:
       state.venders.length === 0
         ? []
         : state.Gallery.map(Gallery => {
-            debugger;
             return {
               ...Gallery,
               VenderName: state.venders.find(a => a.id === Gallery.vender).name

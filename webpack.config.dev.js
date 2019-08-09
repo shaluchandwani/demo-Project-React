@@ -36,11 +36,17 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader", "eslint-loader"],
+        query: {
+          presets: ["react", "es2015", "stage-3"]
+        }
       },
       {
         test: /(\.css)$/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"],
+        query: {
+          presets: ["react", "es2015", "stage-3"]
+        }
       }
     ]
   }
