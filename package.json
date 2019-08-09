@@ -13,7 +13,7 @@
     "build": "webpack --config webpack.config.prod.js",
     "postbuild": "run-p start:api serve:build",
     "serve:build": "http-server ./build",
-    "coveralls": "npm run testci"
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
     "setupFiles": [
