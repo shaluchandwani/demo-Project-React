@@ -1,6 +1,6 @@
-import * as GalleryActions from "./GalleryActions";
-import * as types from "./actionTypes";
-import { Gallery, newGallery } from "../../../tools/mockData";
+import * as GalleryActions from "../src/redux/actions/GalleryActions";
+import * as types from "../src/redux/actions/actionTypes";
+import { Gallery } from "../tools/mockData";
 import thunk from "redux-thunk";
 import fetchMock from "fetch-mock";
 import configureMockStore from "redux-mock-store";

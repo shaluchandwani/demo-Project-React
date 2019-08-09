@@ -1,6 +1,6 @@
 import React from "react";
 import { cleanup, render } from "react-testing-library";
-import GalleryForm from "./GalleryForm";
+import GalleryForm from "../src/components/Gallery/GalleryForm";
 
 afterEach(cleanup);
 

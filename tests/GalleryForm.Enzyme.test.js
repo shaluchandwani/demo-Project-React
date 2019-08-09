@@ -1,5 +1,5 @@
 import React from "react";
-import GalleryForm from "./GalleryForm";
+import GalleryForm from "../src/components/Gallery/GalleryForm";
 import { shallow } from "enzyme";
 
 function renderGalleryForm(args) {

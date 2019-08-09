@@ -1,7 +1,7 @@
 import React from "react";
-import GalleryOneForm from "./GalleryForm";
+import GalleryOneForm from "../src/components/Gallery/GalleryForm";
 import renderer from "react-test-renderer";
-import { Gallery, venders } from "../../../tools/mockData";
+import { Gallery, venders } from "../tools/mockData";
 
 it("sets submit button label 'Saving...' when saving is true", () => {
   const tree = renderer.create(
